@@ -1,0 +1,24 @@
+js一般有两种不同数据类型的值： 
+　　基本类型（包括undefined,Null,boolean,String,Number），按值传递； 
+　　引用类型（包括数组，对象），按址传递，引用类型在值传递的时候是内存中的地址。 
+克隆或者拷贝分为2种： 
+　　浅度克隆：基本类型为值传递，对象仍为引用传递。 
+　　深度克隆：所有元素或属性均完全克隆，并于原引用类型完全独立，即，在后面修改对象的属性的时候，原对象不会被修改。 
+
+复制代码 代码如下:
+function cloneObject(obj){ 
+var o = obj.constructor === Array ? [] : {}; 
+for(var i in obj){ 
+if(obj.hasOwnProperty(i)){ 
+o[i] = typeof obj[i] === "object" ? cloneObject(obj[i]) : obj[i]; 
+} 
+} 
+return o; 
+} 
+
+另：如果是一个简单的数组，元素中没有引用类型的值，可以直接用array.concat();或者array.slice(0);来深度拷贝一个数组，这样简单又高效。数组的concat()和slice()本来就会生成一个新的数组，原来的数组不会受影响。但是要注意的是你要确保被拷贝的数组中元素中没有引用类型的值。 
+这是另一种深度克隆的方法，很简单，很实用： 
+
+代码如下:
+var s = JSON.stringify( obj ); 
+var o = JSON.parse( s ); 
