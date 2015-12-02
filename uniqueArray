@@ -1,0 +1,9 @@
+// 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组
+function uniqArray(arr) {
+    var newArr = [];    //创建空数组
+    for (var i in arr) {    //遍历旧数组
+        if (newArr.indexOf(arr[i]) == -1) {//如果新数组中不存在当前元素
+            newArr.push(arr[i]);//新数组中加入当前元素
+        }
+    }
+    return newArr;
