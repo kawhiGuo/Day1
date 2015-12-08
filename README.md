@@ -74,7 +74,7 @@ xw.say.bind(xh,"实验小学","六年级")();
 xw.say.bind(xh)("实验小学","六年级");
 
 
-感谢http://www.cnblogs.com/cosiray/p/4512969.html
+感谢http://www.cnblogs.com/cosiray/p/4512969.html 。
 
 
 //能力检测
